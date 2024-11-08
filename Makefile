@@ -6,17 +6,16 @@
 #    By: etina <etina@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 15:12:05 by etina             #+#    #+#              #
-#    Updated: 2024/11/07 15:34:33 by etina            ###   ########.fr        #
+#    Updated: 2024/11/08 21:16:47 by etina            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-LIBFT_DIR = ./Libft
-LIBFT = $(LIBFT_DIR)/libft.a
-all: $(LIBFT) ${NAME}
 
-SRCS = 	ft_printf.c \
-		ft_convert.c
+all: ${NAME}
+
+SRCS = ft_printf.c ft_convert.c ft_convertupper.c ft_putchar.c \
+ft_putnbr.c ft_putstr.c ft_putunsign.c ft_strlen.c
 
 OBJECTS = $(SRCS:.c=.o)
 
@@ -30,16 +29,11 @@ CC = cc
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
-$(LIBFT):
-	cd $(LIBFT_DIR) && make
-
 clean:
 	rm -rf ${OBJECTS}
-	cd $(LIBFT_DIR) && make clean
 
 fclean:	clean
 	rm -rf ${NAME}
-	cd $(LIBFT_DIR) && make fclean
 
 re: fclean all
 
