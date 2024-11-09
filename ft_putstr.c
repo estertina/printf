@@ -6,20 +6,23 @@
 /*   By: etina <etina@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:54:36 by etina             #+#    #+#             */
-/*   Updated: 2024/11/08 20:58:14 by etina            ###   ########.fr       */
+/*   Updated: 2024/11/09 16:03:14 by etina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	i;
 
 	i = 0;
+	if (!s)
+		s = "(null)";
 	while (s[i])
 	{
 		write(1, &s[i], 1);
 		i++;
 	}
+	return (i);
 }
